@@ -1,7 +1,5 @@
 import turtle
 
-import main_window
-
 class Player():
 
     player = turtle.Turtle()
@@ -27,7 +25,7 @@ class Player():
         x = self.player.xcor()
         x += self.speed
         if x > 280:
-            x = 280r
+            x = 280
         else:
             self.player.setx(x)
 
