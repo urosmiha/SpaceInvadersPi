@@ -1,5 +1,6 @@
 import turtle
 import os
+import time
 
 import main_window
 import player
@@ -22,6 +23,8 @@ if __name__ == "__main__":
     turtle.listen()
     turtle.onkey(player_one.move_right, "Right")
     turtle.onkey(player_one.move_left, "Left")
+    turtle.onkey(player_one.fire_bullet, "space")
 
     while True:
+        player_one.move()
         enemy_one.move()

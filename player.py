@@ -1,5 +1,7 @@
 import turtle
 
+import bullet
+
 class Player():
 
     player = turtle.Turtle()
@@ -10,16 +12,22 @@ class Player():
     colour = "blue"
     orientation = 90
 
+    bullet = bullet.Bullet()
+
     def __init__(self):
+        self.bullet.render_bullet()
         print("Player One Ready")
 
     def render_player(self):
         self.player.color(self.colour)
         self.player.shape(self.shape)
         self.player.penup()
-        self.player.speed(self.speed)
+        self.player.speed(0)
         self.player.setposition(self.pos_x, self.pos_y)
         self.player.setheading(self.orientation)
+
+    def move(self):
+        self.bullet.move()
 
     def move_right(self):
         x = self.player.xcor()
@@ -36,3 +44,6 @@ class Player():
             x = -280
         else:
             self.player.setx(x)
+
+    def fire_bullet(self):
+        self.bullet.fire(self.player.xcor(), self.player.ycor())
