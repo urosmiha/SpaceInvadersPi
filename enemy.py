@@ -34,10 +34,10 @@ class Enemy():
         x += self.speed
 
         if x > 280 or x < -280:
-            self.speed_up *= -1
-            self.speed = (-1 * self.speed) + self.speed_up
+            self.speed *= -1
+            # self.speed = (-1 * self.speed) + self.speed_up
             y = self.enemy.ycor()
-            y -= 5
+            y -= 40
             self.enemy.sety(y)
 
         self.enemy.setx(x)

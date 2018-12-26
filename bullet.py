@@ -3,14 +3,14 @@ import turtle
 class Bullet():
 
     bullet = turtle.Turtle()
-    speed = 10
+    speed = 20
     size_x = 0.2
     size_y = 0.5
     shape = "square"
     colour = "yellow"
     orientation = 90
 
-    fired = True
+    fired = False
 
     def __init__(self):
         print("Bullet Ready")
@@ -31,11 +31,12 @@ class Bullet():
             self.bullet.sety(y)
 
             if y > 280:
-                fired = False
+                self.fired = False
                 self.bullet.hideturtle()
 
     def fire(self, pl_pos_x, pl_pos_y):
-        # if self.bullet.xcor() > 280:
-        self.bullet.setposition(pl_pos_x, pl_pos_y + 10)
-        self.bullet.showturtle()
+        if not self.fired:
+            self.bullet.setposition(pl_pos_x, pl_pos_y + 10)
+            self.bullet.showturtle()
+            self.fired = True
 
