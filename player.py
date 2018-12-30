@@ -8,7 +8,7 @@ class Player():
     speed = 15
     pos_x = 0
     pos_y = -250
-    shape = "triangle"
+    shape = "player.png"
     colour = "blue"
     orientation = 90
 
@@ -47,3 +47,8 @@ class Player():
 
     def fire_bullet(self):
         self.bullet.fire(self.player.xcor(), self.player.ycor())
+
+    def get_bullet_cor(self):
+        x = self.bullet.bullet.xcor()
+        y = self.bullet.bullet.ycor()
+        return x, y

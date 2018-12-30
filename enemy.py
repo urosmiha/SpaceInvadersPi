@@ -12,10 +12,9 @@ class Enemy():
     colour = "red"
     orientation = 90
 
-    def __init__(self):
-        print("Enemy One Ready")
-
-    def render_enemy(self):
+    def __init__(self, pos_x, pos_y):
+        self.pos_x = pos_x
+        self.pos_y = pos_y
         self.enemy.color(self.colour)
         self.enemy.shape(self.shape)
         self.enemy.penup()
@@ -23,6 +22,9 @@ class Enemy():
         self.enemy.speed(1)
         self.enemy.setposition(self.pos_x, self.pos_y)
         self.enemy.setheading(self.orientation)
+        self.enemy.speed(0)
+        print("Enemy One Ready")
+
 
     def drop_down(self):
         y = self.enemy.ycor()
@@ -37,7 +39,12 @@ class Enemy():
             self.speed *= -1
             # self.speed = (-1 * self.speed) + self.speed_up
             y = self.enemy.ycor()
-            y -= 40
+            y -= 100
             self.enemy.sety(y)
 
         self.enemy.setx(x)
+
+    def reset(self):
+        self.enemy.penup()
+        self.enemy.speed(0)
+        self.enemy.setposition(self.pos_x, self.pos_y)
